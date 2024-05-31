@@ -252,7 +252,7 @@ const InventoryClerkHomePage = ({ navigation }) => {
         <Block style={{ marginLeft: "30%", width: "5%" }}>
           <Icon name="sign-out" size={30} color="white" onPress={onSignOut} />
         </Block>
-        <Block style={{ width: "5%" }}>
+        {/* <Block style={{ width: "5%" }}>
           <Icon
             name="user"
             size={30}
@@ -260,7 +260,7 @@ const InventoryClerkHomePage = ({ navigation }) => {
             onPress={() => navigation.navigate("InventoryClerkProfile")}
             // onPress={<InventoryClerkProfile id={id} />}
           />
-        </Block>
+        </Block> */}
       </View>
       <Card>
         <Button
@@ -281,7 +281,7 @@ const InventoryClerkHomePage = ({ navigation }) => {
             <DataTable.Title>Gender</DataTable.Title>
             <DataTable.Title>Age</DataTable.Title>
             <DataTable.Title>Quality</DataTable.Title>
-            <DataTable.Title>Edit</DataTable.Title>
+            {/* <DataTable.Title>Edit</DataTable.Title> */}
           </DataTable.Header>
           <ScrollView vertical="true" style={{ height: height / 1.35 }}>
             {items.map((i, x) =>
@@ -294,7 +294,7 @@ const InventoryClerkHomePage = ({ navigation }) => {
                   <DataTable.Cell id={i.id}>{i.gender}</DataTable.Cell>
                   <DataTable.Cell id={i.id}>{i.age}</DataTable.Cell>
                   <DataTable.Cell id={i.id}>{i.quality}</DataTable.Cell>
-                  <DataTable.Cell>
+                  {/* <DataTable.Cell>
                     <Button
                       shadowless
                       color={Theme.COLORS.WARNING}
@@ -307,7 +307,7 @@ const InventoryClerkHomePage = ({ navigation }) => {
                     >
                       Edit
                     </Button>
-                  </DataTable.Cell>
+                  </DataTable.Cell> */}
                 </DataTable.Row>
               ) : null
             )}
