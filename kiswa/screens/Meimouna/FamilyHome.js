@@ -230,7 +230,7 @@ const FamilyHome = ({ route, navigation }) => {
             <TouchableOpacity
               onPress={() => navigation.navigate("RequestHistory", id)}
             >
-              <Block style={styles.box2}>
+              {/* <Block style={styles.box2}>
                 <Image
                   source={require("../../assets/imgs/rqustHistory.png")}
                   style={{
@@ -240,12 +240,12 @@ const FamilyHome = ({ route, navigation }) => {
                   }}
                 ></Image>
                 <Text style={styles.tit}>Requests History</Text>
-              </Block>
+              </Block> */}
             </TouchableOpacity>
           </Block>
           {/* feedback */}
 
-          <Block style={styles.box3}>
+          {/* <Block style={styles.box3}>
             <Pressable
               onPress={() => navigation.navigate("FamilyFeedback", id)}
               styles={{ backgroundColor: "gray" }}
@@ -261,7 +261,7 @@ const FamilyHome = ({ route, navigation }) => {
               ></Image>
               <Text style={styles.tit}>Give Feedback</Text>
             </Pressable>
-          </Block>
+          </Block> */}
         </Block>
       </View>
     );
@@ -325,13 +325,13 @@ const FamilyHome = ({ route, navigation }) => {
         >
           <FontAwesome5 name="shopping-cart" color="#1a1f87" size={38} />
         </Pressable>
-
+{/* 
         <Pressable
           style={{ width: "14%" }}
           onPress={() => navigation.navigate("FamilyProfile", id)}
         >
           <FontAwesome name="user-circle" color="#1a1f87" size={40} />
-        </Pressable>
+        </Pressable> */}
       </Block>
     </Block>
   );

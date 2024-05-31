@@ -317,7 +317,7 @@ const FamilyCart = ({ route, navigation }) => {
             </View>
             <Text></Text>
             <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <Pressable
+              {/* <Pressable
                 // onPress={() => (cart.length >= 1 ? closeRequest() : null)}
                 onPress={() =>
                   navigation.navigate("ConfirmFamilyCart", {
@@ -350,7 +350,7 @@ const FamilyCart = ({ route, navigation }) => {
                 >
                   Submit Request
                 </Text>
-              </Pressable>
+              </Pressable> */}
             </View>
             <Text></Text>
             <Text></Text>
@@ -625,12 +625,12 @@ const FamilyCart = ({ route, navigation }) => {
           <Feather name="plus-circle" color="#f8a069" size={45} />
         </Pressable>
 
-        <Pressable
+        {/* <Pressable
           style={{ width: "14%" }}
           onPress={() => navigation.navigate("FamilyProfile", id)}
         >
           <FontAwesome name="user-circle" color="#1a1f87" size={45} />
-        </Pressable>
+        </Pressable> */}
       </Block>
     </Block>
   );
