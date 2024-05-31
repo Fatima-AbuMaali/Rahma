@@ -88,128 +88,128 @@ const Donors = ({ navigation }) => {
 
   const readOne = async (user) => {
     setHover(user);
-    const q = query(
-      collection(db, "donorDonation"),
-      where("email", "==", user)
-    );
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      console.log("snapshot");
-      setDonations(querySnapshot.docs.map((doc) => doc.data()));
-      //  setFamilies(querySnapshot.docs.map((doc) => doc.data()));
-      setFlag(true);
-    });
+    // const q = query(
+    //   collection(db, "donorDonation"),
+    //   where("email", "==", user)
+    // );
+    // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    //   console.log("snapshot");
+    //   setDonations(querySnapshot.docs.map((doc) => doc.data()));
+    //   //  setFamilies(querySnapshot.docs.map((doc) => doc.data()));
+    //   setFlag(true);
+    // });
 
     return () => unsubscribe();
   };
 
-  const renderCards = () => {
-    return (
-      <Block
-        // height={height * 0.6}
-        style={{ borderWidth: 1, height: height * 0.6, marginTop: "5%" }}
-      >
-        <ScrollView>
-          <Text
-            style={{
-              fontSize: deviceType == "mobile" ? 20 : 30,
-              marginLeft: "5%",
-              marginTop: "3%",
-            }}
-          >
-            Donations
-          </Text>
-          <View
-            style={{ flexDirection: "row", flexWrap: "wrap", width: width }}
-          >
-            {/* <ScrollView> */}
-            {donations &&
-              donations.map((item) => (
-                <View style={styles.notificationBox} key={item.trackId}>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      paddingHorizontal: "2%",
-                      paddingVertical: "1%",
-                    }}
-                  >
-                    <Text style={styles.description}>Picked </Text>
-                    {/* <Text style={styles.description}>{item.dateTime}</Text> */}
-                  </View>
+  // const renderCards = () => {
+  //   return (
+  //     <Block
+  //       // height={height * 0.6}
+  //       style={{ borderWidth: 1, height: height * 0.6, marginTop: "5%" }}
+  //     >
+  //       <ScrollView>
+  //         <Text
+  //           style={{
+  //             fontSize: deviceType == "mobile" ? 20 : 30,
+  //             marginLeft: "5%",
+  //             marginTop: "3%",
+  //           }}
+  //         >
+  //           Donations
+  //         </Text>
+  //         <View
+  //           style={{ flexDirection: "row", flexWrap: "wrap", width: width }}
+  //         >
+  //           {/* <ScrollView> */}
+  //           {donations &&
+  //             donations.map((item) => (
+  //               <View style={styles.notificationBox} key={item.trackId}>
+  //                 <View
+  //                   style={{
+  //                     flexDirection: "row",
+  //                     justifyContent: "space-between",
+  //                     paddingHorizontal: "2%",
+  //                     paddingVertical: "1%",
+  //                   }}
+  //                 >
+  //                   <Text style={styles.description}>Picked </Text>
+  //                   {/* <Text style={styles.description}>{item.dateTime}</Text> */}
+  //                 </View>
 
-                  <View
-                    style={{
-                      borderWidth: 0.6,
-                      width: width > 550 ? width * 0.43 : width * 0.8,
-                      marginBottom: "1%",
-                      // borderWidth: 1,
-                    }}
-                  ></View>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      margin: "5%",
-                      marginTop: "2%",
-                      // borderWidth: 1,
-                      marginBottom: "1%",
-                    }}
-                  >
-                    {item.status == "pending" ? (
-                      <Image
-                        style={styles.icon}
-                        source={require("../../assets/Asmaa/pendingDon.png")}
-                      />
-                    ) : (
-                      <Image
-                        style={styles.icon}
-                        source={require("../../assets/Asmaa/picked.png")}
-                      />
-                    )}
+  //                 <View
+  //                   style={{
+  //                     borderWidth: 0.6,
+  //                     width: width > 550 ? width * 0.43 : width * 0.8,
+  //                     marginBottom: "1%",
+  //                     // borderWidth: 1,
+  //                   }}
+  //                 ></View>
+  //                 <View
+  //                   style={{
+  //                     flexDirection: "row",
+  //                     margin: "5%",
+  //                     marginTop: "2%",
+  //                     // borderWidth: 1,
+  //                     marginBottom: "1%",
+  //                   }}
+  //                 >
+  //                   {item.status == "pending" ? (
+  //                     <Image
+  //                       style={styles.icon}
+  //                       source={require("../../assets/Asmaa/pendingDon.png")}
+  //                     />
+  //                   ) : (
+  //                     <Image
+  //                       style={styles.icon}
+  //                       source={require("../../assets/Asmaa/picked.png")}
+  //                     />
+  //                   )}
 
-                    <View
-                      style={{
-                        width: "67%",
-                        // borderWidth: 1,
-                      }}
-                    >
-                      <View
-                        style={{
-                          // flexDirection: "row",
-                          width: "120%",
-                          // borderWidth: 1,
-                          padding: "1%",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        {/* <MaterialIcons name="location-pin" size={25} />
-                        <Text style={styles.description}>{item.location}</Text>
-                        <Text style={styles.description}>{item.location}</Text> */}
-                        <Text style={styles.description}>{item.dateSlot}</Text>
-                        <Text style={styles.description}>{item.timeSlot}</Text>
-                      </View>
+  //                   <View
+  //                     style={{
+  //                       width: "67%",
+  //                       // borderWidth: 1,
+  //                     }}
+  //                   >
+  //                     <View
+  //                       style={{
+  //                         // flexDirection: "row",
+  //                         width: "120%",
+  //                         // borderWidth: 1,
+  //                         padding: "1%",
+  //                         justifyContent: "space-between",
+  //                       }}
+  //                     >
+  //                       {/* <MaterialIcons name="location-pin" size={25} />
+  //                       <Text style={styles.description}>{item.location}</Text>
+  //                       <Text style={styles.description}>{item.location}</Text> */}
+  //                       <Text style={styles.description}>{item.dateSlot}</Text>
+  //                       <Text style={styles.description}>{item.timeSlot}</Text>
+  //                     </View>
 
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          width: "75%",
-                          // borderWidth: 1,
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        {/* <MaterialIcons name="date-range" size={25} /> */}
-                        {/* <Text style={styles.description}>
-                          {item.date} -{item.time}
-                        </Text> */}
-                      </View>
-                    </View>
-                  </View>
-                </View>
-              ))}
-          </View>
-        </ScrollView>
-      </Block>
-    );
-  };
+  //                     <View
+  //                       style={{
+  //                         flexDirection: "row",
+  //                         width: "75%",
+  //                         // borderWidth: 1,
+  //                         justifyContent: "space-between",
+  //                       }}
+  //                     >
+  //                       {/* <MaterialIcons name="date-range" size={25} /> */}
+  //                       {/* <Text style={styles.description}>
+  //                         {item.date} -{item.time}
+  //                       </Text> */}
+  //                     </View>
+  //                   </View>
+  //                 </View>
+  //               </View>
+  //             ))}
+  //         </View>
+  //       </ScrollView>
+  //     </Block>
+  //   );
+  // };
 
   // >>>>>>>>>>>>>> Search functions <<<<<<<<<<<<<<
   const [searchQuery, setSearchQuery] = useState("");
@@ -332,7 +332,7 @@ const Donors = ({ navigation }) => {
             ))}
         </ScrollView>
       </View>
-
+{/* 
       {flag && donations.length == 0 ? (
         <View
           style={{
@@ -357,7 +357,7 @@ const Donors = ({ navigation }) => {
         </View>
       ) : flag && donations.length != 0 ? (
         renderCards()
-      ) : null}
+      ) : null} */}
     </DataTable>
   );
 };

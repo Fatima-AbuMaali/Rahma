@@ -88,21 +88,21 @@ const Families = ({ navigation }) => {
 
   const readOne = async (user) => {
     setHover(user);
-    const q = query(
-      collection(db, "familyRequests"),
-      where("familyID", "==", user)
-    );
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      console.log("snapshot");
-      setRequests(
-        querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      );
-      //  setFamilies(querySnapshot.docs.map((doc) => doc.data()));
-      setFlag(true);
-    });
+    // const q = query(
+    //   collection(db, "familyRequests"),
+    //   where("familyID", "==", user)
+    // );
+    // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    //   console.log("snapshot");
+    //   setRequests(
+    //     querySnapshot.docs.map((doc) => ({
+    //       id: doc.id,
+    //       data: doc.data(),
+    //     }))
+    //   );
+    //   //  setFamilies(querySnapshot.docs.map((doc) => doc.data()));
+    //   setFlag(true);
+    // });
 
     return () => unsubscribe();
   };
@@ -131,140 +131,140 @@ const Families = ({ navigation }) => {
       setFamilies(filteredData);
     }
   };
-  const renderCards = () => {
-    return (
-      <SafeAreaView style={{ height: 600, width: width }}>
-        <Block
-          // height={height * 0.6}
-          style={{
-            borderWidth: 1,
-            height: height,
-            marginTop: "5%",
-          }}
-        >
-          {/* <ScrollView> */}
-          <Text
-            style={{
-              fontSize: normalize(28),
-              marginLeft: "5%",
-              marginTop: "3%",
-            }}
-          >
-            Requests
-          </Text>
-          <View
-            style={{
-              width: width,
-              height: 400,
-            }}
-          >
-            <ScrollView>
-              {requests.length > 0
-                ? requests.map((item) => (
-                    <Pressable
-                      style={styles.notificationBox}
-                      key={item.id}
-                      onPress={() =>
-                        navigation.navigate("FamilyCartDetails", {
-                          cartId: item.id,
-                        })
-                      }
-                    >
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          justifyContent: "space-between",
-                          paddingHorizontal: "2%",
-                          paddingVertical: "1%",
-                        }}
-                      >
-                        <Text style={styles.description}>
-                          {item.data.status}
-                        </Text>
-                      </View>
+  // const renderCards = () => {
+  //   return (
+  //     <SafeAreaView style={{ height: 600, width: width }}>
+  //       <Block
+  //         // height={height * 0.6}
+  //         style={{
+  //           borderWidth: 1,
+  //           height: height,
+  //           marginTop: "5%",
+  //         }}
+  //       >
+  //         {/* <ScrollView> */}
+  //         <Text
+  //           style={{
+  //             fontSize: normalize(28),
+  //             marginLeft: "5%",
+  //             marginTop: "3%",
+  //           }}
+  //         >
+  //           Requests
+  //         </Text>
+  //         <View
+  //           style={{
+  //             width: width,
+  //             height: 400,
+  //           }}
+  //         >
+  //           <ScrollView>
+  //             {requests.length > 0
+  //               ? requests.map((item) => (
+  //                   <Pressable
+  //                     style={styles.notificationBox}
+  //                     key={item.id}
+  //                     onPress={() =>
+  //                       navigation.navigate("FamilyCartDetails", {
+  //                         cartId: item.id,
+  //                       })
+  //                     }
+  //                   >
+  //                     <View
+  //                       style={{
+  //                         flexDirection: "row",
+  //                         justifyContent: "space-between",
+  //                         paddingHorizontal: "2%",
+  //                         paddingVertical: "1%",
+  //                       }}
+  //                     >
+  //                       <Text style={styles.description}>
+  //                         {item.data.status}
+  //                       </Text>
+  //                     </View>
 
-                      <View
-                        style={{
-                          borderWidth: 0.6,
-                          width: width * 0.84,
-                          marginBottom: "1%",
-                          // borderWidth: 1,
-                        }}
-                      ></View>
-                      <View
-                        style={{
-                          flexDirection: "row",
-                          margin: "5%",
-                          marginTop: "2%",
-                          // borderWidth: 1,
-                          marginBottom: "1%",
-                        }}
-                      >
-                        {item.data.status == "pending" ? (
-                          <Image
-                            style={styles.icon}
-                            source={require("../../assets/Asmaa/pendingDon.png")}
-                          />
-                        ) : (
-                          <Image
-                            style={styles.icon}
-                            source={require("../../assets/Asmaa/fullfied.png")}
-                          />
-                        )}
+  //                     <View
+  //                       style={{
+  //                         borderWidth: 0.6,
+  //                         width: width * 0.84,
+  //                         marginBottom: "1%",
+  //                         // borderWidth: 1,
+  //                       }}
+  //                     ></View>
+  //                     <View
+  //                       style={{
+  //                         flexDirection: "row",
+  //                         margin: "5%",
+  //                         marginTop: "2%",
+  //                         // borderWidth: 1,
+  //                         marginBottom: "1%",
+  //                       }}
+  //                     >
+  //                       {item.data.status == "pending" ? (
+  //                         <Image
+  //                           style={styles.icon}
+  //                           source={require("../../assets/Asmaa/pendingDon.png")}
+  //                         />
+  //                       ) : (
+  //                         <Image
+  //                           style={styles.icon}
+  //                           source={require("../../assets/Asmaa/fullfied.png")}
+  //                         />
+  //                       )}
 
-                        <View
-                          style={{
-                            width: "67%",
-                          }}
-                        >
-                          <View
-                            style={{
-                              width: "120%",
-                              padding: "1%",
-                              justifyContent: "space-between",
-                            }}
-                          >
-                            <Text style={styles.description}>
-                              {item.data.dateSlot}
-                            </Text>
-                            <Text style={styles.description}>
-                              {item.data.timeSlot}
-                            </Text>
-                            <Text
-                              style={{
-                                fontSize: normalize(22),
-                                textAlign: "right",
-                                color: "#1a1f87",
-                                fontWeight: "bold",
-                                width:
-                                  deviceType == "mobile"
-                                    ? width * 0.6
-                                    : width * 0.68,
-                              }}
-                            >
-                              View Items
-                            </Text>
-                          </View>
+  //                       <View
+  //                         style={{
+  //                           width: "67%",
+  //                         }}
+  //                       >
+  //                         <View
+  //                           style={{
+  //                             width: "120%",
+  //                             padding: "1%",
+  //                             justifyContent: "space-between",
+  //                           }}
+  //                         >
+  //                           <Text style={styles.description}>
+  //                             {item.data.dateSlot}
+  //                           </Text>
+  //                           <Text style={styles.description}>
+  //                             {item.data.timeSlot}
+  //                           </Text>
+  //                           <Text
+  //                             style={{
+  //                               fontSize: normalize(22),
+  //                               textAlign: "right",
+  //                               color: "#1a1f87",
+  //                               fontWeight: "bold",
+  //                               width:
+  //                                 deviceType == "mobile"
+  //                                   ? width * 0.6
+  //                                   : width * 0.68,
+  //                             }}
+  //                           >
+  //                             View Items
+  //                           </Text>
+  //                         </View>
 
-                          <View
-                            style={{
-                              flexDirection: "row",
-                              width: "75%",
-                              // borderWidth: 1,
-                              justifyContent: "space-between",
-                            }}
-                          ></View>
-                        </View>
-                      </View>
-                    </Pressable>
-                  ))
-                : null}
-            </ScrollView>
-          </View>
-        </Block>
-      </SafeAreaView>
-    );
-  };
+  //                         <View
+  //                           style={{
+  //                             flexDirection: "row",
+  //                             width: "75%",
+  //                             // borderWidth: 1,
+  //                             justifyContent: "space-between",
+  //                           }}
+  //                         ></View>
+  //                       </View>
+  //                     </View>
+  //                   </Pressable>
+  //                 ))
+  //               : null}
+  //           </ScrollView>
+  //         </View>
+  //       </Block>
+  //     </SafeAreaView>
+  //   );
+  // };
 
   return (
     <DataTable style={{ height: 100 }}>
@@ -370,7 +370,7 @@ const Families = ({ navigation }) => {
           </ScrollView>
         </View>
 
-        {flag && requests.length == 0 ? (
+        {/* {flag && requests.length == 0 ? (
           <View
             style={{
               width: width * 0.9,
@@ -394,7 +394,7 @@ const Families = ({ navigation }) => {
           </View>
         ) : flag && requests.length != 0 ? (
           renderCards()
-        ) : null}
+        ) : null} */}
       </SafeAreaView>
     </DataTable>
   );

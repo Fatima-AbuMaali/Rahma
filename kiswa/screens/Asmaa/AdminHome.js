@@ -48,7 +48,7 @@ import Inventory from "./Inventory";
 import Donors from "./Donors";
 import FamiliesCards from "./FamiliesCards";
 import InventoryTable from "./InventoryTable";
-import Feedback from "./FeedbackAdmin";
+// import Feedback from "./FeedbackAdmin";
 
 const { width, height } = Dimensions.get("screen");
 const scale = width / 830;
@@ -228,7 +228,7 @@ const AdminHome = ({ route, navigation }) => {
                     Donors
                   </Text>
                 </Button>
-                <Button
+                {/* <Button
                   style={{ backgroundColor: "#1a1f87" }}
                   size="small"
                   onPress={() => setUsers("feedback")}
@@ -236,7 +236,7 @@ const AdminHome = ({ route, navigation }) => {
                   <Text style={{ fontSize: normalize(30), color: "#FFF" }}>
                     Feedback
                   </Text>
-                </Button>
+                </Button> */}
               </View>
 
               {/* <Families navigation={navigation} /> */}
