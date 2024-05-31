@@ -32,11 +32,11 @@ import {
 import { db } from "../../config";
 import { signOut } from "firebase/auth";
 import { Tab, TabView } from "@rneui/themed";
-import DriverHistory from "./DriverHistory";
+// import DriverHistory from "./DriverHistory";
 import DriverProfile from "./DriverProfile";
 import DriverHome from "./DriverHome";
 import Drivers from "./Drivers";
-import DriverMap from "./DriverMap";
+// import DriverMap from "./DriverMap";
 import * as Notifications from "expo-notifications";
 
 const { width, height } = Dimensions.get("screen");
@@ -130,9 +130,9 @@ const DriverDash = ({ route, navigation }) => {
         </TabView.Item>
 
         {/*--------- History -------------*/}
-        <TabView.Item style={styles.comp}>
+        {/* <TabView.Item style={styles.comp}>
           <DriverHistory navigation={navigation} />
-        </TabView.Item>
+        </TabView.Item> */}
         {/*--------- Profile -------------*/}
         <TabView.Item style={styles.comp}>
           <DriverProfile navigation={navigation} />
@@ -169,7 +169,7 @@ const DriverDash = ({ route, navigation }) => {
           />
         </Tab.Item>
 
-        <Tab.Item
+        {/* <Tab.Item
           onChange={setIndex}
           value={4}
           title="Girls"
@@ -183,9 +183,9 @@ const DriverDash = ({ route, navigation }) => {
             color={index == 1 ? "#3C4DBD" : "black"}
             name="history"
             size={deviceType == "mobile" ? 45 : 45}
-          />
+          /> */}
           {/* <Text style={{ fontSize: normalize(19) }}>Clerk</Text> */}
-        </Tab.Item>
+        {/* </Tab.Item> */}
         <Tab.Item
           onChange={setIndex}
           value={5}
