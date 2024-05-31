@@ -280,12 +280,13 @@ const Donate = ({ route, navigation }) => {
         setDateError("");
       }
       if (time !== "" && date !== "") {
-        navigation.navigate("CheckOut", {
-          itemsArray: confirm,
-          time: time,
-          date: date,
-          Dzone: Dzone,
-        });
+        // navigation.navigate("CheckOut", {
+        //   itemsArray: confirm,
+        //   time: time,
+        //   date: date,
+        //   Dzone: Dzone,
+        // });
+        console.log("checkout")
       }
     } else {
       if (cloth === "" || cloth === undefined) {

@@ -608,14 +608,14 @@ const Home = ({ route, navigation }) => {
           <Feather name="info" size={40} />
         </Pressable>
 
-        {user != undefined ? (
+        {/* {user != undefined ? (
           <Pressable
             style={{ width: "14%" }}
             onPress={() => navigation.navigate("Profile")}
           >
             <AntDesign name="user" size={40} />
           </Pressable>
-        ) : null}
+        ) : null} */}
       </Block>
     </Block>
   );
